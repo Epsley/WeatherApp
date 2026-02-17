@@ -39,3 +39,17 @@ if response.status_code == 200:
 else:
     print("Error in the api: " + str(response.status_code))
 
+city = data["name"]
+country = data["sys"]["country"]
+temp_k = data["main"]["temp"]
+temp_c = temp_k - 273.15
+description = data["weather"][0]["description"]
+humidity = data["main"]["humidity"]
+wind_speed = data["wind"]["speed"]
+
+print(f"\nWeather in {city}, {country}")
+print("-" * 30)
+print(f"Description : {description}")
+print(f"Temperature : {temp_c:.1f} °C")
+print(f"Humidity    : {humidity}%")
+print(f"Wind Speed  : {wind_speed} m/s")
